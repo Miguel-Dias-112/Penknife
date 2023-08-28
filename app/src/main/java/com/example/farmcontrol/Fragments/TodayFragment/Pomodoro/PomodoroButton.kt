@@ -16,12 +16,13 @@ class PomodoroButton(var view: View, var c: Context) {
         var valor = valor.toString()
 
         if(valor==""){
-            Log.i("aqui", "checa_valor: ${valor_padrão} ")
             return (valor_padrão)
 
         }else{
-            Log.i("aqui", "checa_valor: ${valor} ")
-
+            if (valor_padrão==5L){
+                return (valor.toInt()).toLong()
+            }
+            valor= (valor.toLong()*60000).toString()
             return (valor.toInt()).toLong()
         }
     }
