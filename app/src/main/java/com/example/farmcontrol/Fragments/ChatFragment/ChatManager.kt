@@ -1,7 +1,9 @@
 package com.example.farmcontrol.Fragments.ChatFragment
 
 import android.content.Context
+import android.graphics.PorterDuff
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
@@ -28,11 +30,17 @@ class ChatManager(var view:View,var context: Context) {
         cicloDeVida.launch {
             val  botao_enviar = view.findViewById<ImageButton>(R.id.send_btn)
             val  texto_Input = view.findViewById<EditText>(R.id.text_input)
+
+
             botao_enviar.setOnClickListener {
                 cicloDeVida.launch {
+
                     val pergunta = texto_Input.text.toString()
                     perguntarChatGPT(context, chatlist,pergunta)
+                    texto_Input.setText("")
+
                 }
+
             }
         }
     }
