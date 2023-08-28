@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.farmcontrol.R
 import com.example.farmcontrol.dialogs.ScreenManager
 import com.example.farmcontrol.logica.Blocker.BlockerService
-import com.example.farmcontrol.logica.Pomodoro.PomodoButton
+import com.example.farmcontrol.Fragments.TodayFragment.Pomodoro.PomodoroButton
 
 /**
  * A simple [Fragment] subclass.
@@ -83,7 +83,7 @@ class SecondFragment : Fragment() {
         }
 
         ScreenManager.lembretes_dia_lista=view.findViewById<RecyclerView>(R.id.recyclerView)
-        PomodoButton(view,requireContext())
+        PomodoroButton(view,requireContext())
         atualiza_lista(requireContext())
         BlockerService.counter=0
         x=switch3

@@ -1,4 +1,4 @@
-package com.example.farmcontrol.Web.ChatGptApi.Models
+package com.example.farmcontrol.Fragments.ChatFragment.ClassesModelos
 
 data class Corpo(
     val model:String,

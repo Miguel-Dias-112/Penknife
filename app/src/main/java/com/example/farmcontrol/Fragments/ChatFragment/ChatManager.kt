@@ -9,14 +9,16 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.farmcontrol.R
-import com.example.farmcontrol.Web.ChatGptApi.ChatGptApi
+import com.example.farmcontrol.Fragments.ChatFragment.ChatGptManager.ChatGptApi
+import com.example.farmcontrol.Fragments.ChatFragment.ClassesModelos.Message
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class ChatManager(var view:View,var context: Context) {
-    val cicloDeVida = CoroutineScope(Dispatchers.IO)
+    val cicloDeVida = CoroutineScope(Dispatchers.Main)
 
     init {
         var chatlist: RecyclerView = view.findViewById(R.id.chat_list)
@@ -26,15 +28,10 @@ class ChatManager(var view:View,var context: Context) {
         cicloDeVida.launch {
             val  botao_enviar = view.findViewById<ImageButton>(R.id.send_btn)
             val  texto_Input = view.findViewById<EditText>(R.id.text_input)
+            val pergunta = texto_Input.text.toString()
             botao_enviar.setOnClickListener {
-                if (carregou==false){
-                    val pergunta = texto_Input.text.toString()
-                    cicloDeVida.launch {
-                        pergunta_usuario(context, chatlist!!,pergunta)
-                        texto_Input.setText("")
-                    }
-                }else{
-                    Toast.makeText(context,"Uma pergunta por vez", Toast.LENGTH_SHORT).show()
+                cicloDeVida.launch {
+                    perguntarChatGPT(context, recyclerView!!,pergunta)
                 }
             }
         }
@@ -44,12 +41,20 @@ class ChatManager(var view:View,var context: Context) {
         var index: Int? = null
         var recyclerView: RecyclerView? = null
 
-        suspend fun pergunta_usuario(context: Context,recyclerView: RecyclerView, pergunta:String){
-            adicionar_mensagem(pergunta,"user",context,recyclerView)
-            var resposta = ChatGptApi().pergunta_ao_chat_gpt(context,pergunta,recyclerView)
-            if (resposta != null) {
-             //   adicionar_mensagem(resposta,"chatgpt",context,recyclerView)
+
+        suspend fun perguntarChatGPT(context: Context, recyclerView: RecyclerView, pergunta:String){
+            val mensagemÑVazia = !pergunta.isBlank()
+            val estácarregando= carregou
+
+            if (mensagemÑVazia and estácarregando){
+                adicionar_mensagem(pergunta,"user",context,recyclerView)
+                var resposta = ChatGptApi().pergunta_ao_chat_gpt(context,pergunta,recyclerView)
+
             }
+
+            //if (resposta != null) {
+             //   adicionar_mensagem(resposta,"chatgpt",context,recyclerView)
+            //}
 
         }
 
@@ -67,7 +72,7 @@ class ChatManager(var view:View,var context: Context) {
             chatlist?.adapter=adapter
         }
         fun adicionar_mensagem(texto:String,autor:String,context: Context,recyclerView: RecyclerView): Message {
-            var mensagem=Message(texto,autor)
+            var mensagem= Message(texto,autor)
             mensagens.add(mensagem)
             atualiza_lista_without_Scrool(context,recyclerView)
             return mensagem
@@ -98,7 +103,7 @@ class ChatManager(var view:View,var context: Context) {
         }
 
         fun finish_load (texto:String,autor:String,context: Context,recyclerView: RecyclerView){
-            mensagens[index!!]=Message(texto,autor)
+            mensagens[index!!]= Message(texto,autor)
             carregou=false
             atualiza_lista_without_Scrool(context,recyclerView)
         }

@@ -1,4 +1,4 @@
-package com.example.farmcontrol.logica.Pomodoro
+package com.example.farmcontrol.Fragments.TodayFragment.Pomodoro
 
 import android.content.Context
 import android.util.Log
@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.farmcontrol.R
 
-class PomodoButton(var view: View, var c: Context) {
+class PomodoroButton(var view: View, var c: Context) {
 
     private fun checa_valor(valor: CharSequence, valor_padrão:Long): Long {
         var valor = valor.toString()
@@ -46,7 +46,6 @@ class PomodoButton(var view: View, var c: Context) {
         val _tempo_pc = view.findViewById<TextView>(R.id.tempo_pl).text
         val _tempo_pl = view.findViewById<TextView>(R.id.tempo_pc).text
         val _ticks = view.findViewById<TextView>(R.id.ticks).text
-
         var tempo_pomo = checa_valor(_tempo_pomo,8*60000)
         var tempo_pc =  checa_valor(_tempo_pc,5*60000)
         var tempo_pl = checa_valor(_tempo_pl,10*60000)

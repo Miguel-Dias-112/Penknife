@@ -1,12 +1,12 @@
-package com.example.farmcontrol.Web.ChatGptApi
+package com.example.farmcontrol.Fragments.ChatFragment.ChatGptManager
 
 import android.content.Context
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.example.farmcontrol.Fragments.ChatFragment.ChatManager
-import com.example.farmcontrol.Web.ChatGptApi.Models.ChatGptAswner
-import com.example.farmcontrol.Web.ChatGptApi.Models.Corpo
-import com.example.farmcontrol.Web.ChatGptApi.Models.MessageBody
+import com.example.farmcontrol.Fragments.ChatFragment.ClassesModelos.ChatGptAswner
+import com.example.farmcontrol.Fragments.ChatFragment.ClassesModelos.Corpo
+import com.example.farmcontrol.Fragments.ChatFragment.ClassesModelos.MessageBody
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

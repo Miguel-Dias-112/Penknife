@@ -1,7 +1,7 @@
-package com.example.farmcontrol.Web.ChatGptApi
+package com.example.farmcontrol.Fragments.ChatFragment.ChatGptManager
 
-import com.example.farmcontrol.Web.ChatGptApi.Models.ChatGptAswner
-import com.example.farmcontrol.Web.ChatGptApi.Models.Corpo
+import com.example.farmcontrol.Fragments.ChatFragment.ClassesModelos.ChatGptAswner
+import com.example.farmcontrol.Fragments.ChatFragment.ClassesModelos.Corpo
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Header

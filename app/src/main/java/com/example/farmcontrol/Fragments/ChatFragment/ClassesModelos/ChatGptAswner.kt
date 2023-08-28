@@ -1,4 +1,4 @@
-package com.example.farmcontrol.Web.ChatGptApi.Models
+package com.example.farmcontrol.Fragments.ChatFragment.ClassesModelos
 
 import com.google.gson.annotations.SerializedName
 
