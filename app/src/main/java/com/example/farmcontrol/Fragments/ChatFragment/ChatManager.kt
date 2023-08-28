@@ -28,10 +28,10 @@ class ChatManager(var view:View,var context: Context) {
         cicloDeVida.launch {
             val  botao_enviar = view.findViewById<ImageButton>(R.id.send_btn)
             val  texto_Input = view.findViewById<EditText>(R.id.text_input)
-            val pergunta = texto_Input.text.toString()
             botao_enviar.setOnClickListener {
                 cicloDeVida.launch {
-                    perguntarChatGPT(context, recyclerView!!,pergunta)
+                    val pergunta = texto_Input.text.toString()
+                    perguntarChatGPT(context, chatlist,pergunta)
                 }
             }
         }
@@ -44,11 +44,13 @@ class ChatManager(var view:View,var context: Context) {
 
         suspend fun perguntarChatGPT(context: Context, recyclerView: RecyclerView, pergunta:String){
             val mensagemÑVazia = !pergunta.isBlank()
-            val estácarregando= carregou
+            val estácarregando= !carregou
+            Log.i("chat", "perguntarChatGPT: ${mensagemÑVazia} and ${estácarregando}")
 
             if (mensagemÑVazia and estácarregando){
                 adicionar_mensagem(pergunta,"user",context,recyclerView)
                 var resposta = ChatGptApi().pergunta_ao_chat_gpt(context,pergunta,recyclerView)
+                Log.i("chat", "perguntarChatGPT: 2")
 
             }
 

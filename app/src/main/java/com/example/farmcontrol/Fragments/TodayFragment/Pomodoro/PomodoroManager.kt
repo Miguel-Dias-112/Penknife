@@ -1,16 +1,19 @@
 package com.example.farmcontrol.Fragments.TodayFragment.Pomodoro
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.widget.TextView
 import com.example.farmcontrol.logica.Alarmes.AlarmeDAO
+import com.example.farmcontrol.logica.Blocker.BlockerService
+import com.example.farmcontrol.logica.Blocker.CronometroService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class PomodoroService(
+class PomodoroManager(
     var tempo_pomodoro:Long,
     var tempo_de_pausaLonga:Long,
     var tempo_de_pausaCurta:Long,
@@ -21,23 +24,31 @@ class PomodoroService(
 {
 
 
-    fun restart(){
-        numero_ticks =0
+    fun deletar(){
         cronometro.cancel()
+        cronometro =CoroutineScope(Dispatchers.Main)
+        txt?.setText("iniciar")
+        CronometroService.mudartexto("00:00")
+        CronometroService.close()
+        numero_ticks=0
+        tempo_decorrido=0
+        pausa=false
+        pausado=false
     }
     fun pausar(){
         cronometro.cancel()
         cronometro =CoroutineScope(Dispatchers.Main)
         txt?.setText("pausado")
+        CronometroService.mudartexto("pausado")
+
         Log.i("aqui", "pausar: 1")
     }
 
     suspend fun pausas(){
         var alarmeFactory = AlarmeDAO(c)
-
-
         if(numero_ticks ==ticks_pausaLonga) {
             txt!!.setText("pausa longa "+(tempo_de_pausaLonga/1000 - tempo_decorrido /1000)+"")
+            CronometroService.mudartexto("\"pausa longa \"+(tempo_de_pausaLonga/1000 - tempo_decorrido /1000)+\"\"")
 
             if (tempo_decorrido ==tempo_de_pausaLonga){
                 numero_ticks =0
@@ -49,7 +60,7 @@ class PomodoroService(
         }
         else{
             txt!!.setText("pausa curta "+(tempo_de_pausaCurta/1000 - tempo_decorrido /1000)+"")
-
+            CronometroService.mudartexto("pausa curta \"+(tempo_de_pausaCurta/1000 - tempo_decorrido /1000)+\"")
             if (tempo_decorrido ==tempo_de_pausaCurta){
 
                 tempo_decorrido =0
@@ -65,7 +76,6 @@ class PomodoroService(
             while (true) {
                 delay(1000)
                 tempo_decorrido +=1000
-
                 //detecta que o tempo do pomo acabou
                 if (tempo_decorrido ==tempo_pomodoro && pausa ==false){
                     tempo_decorrido =0
@@ -73,27 +83,23 @@ class PomodoroService(
                 }
                 //detecta se está pausado
                 if (pausa){
-
-
                     var alarmeFactory = AlarmeDAO(c)
-
                     //notifica que está pausado
                     if (tempo_decorrido ==0L){
                         alarmeFactory.tocarSom()
                         delay(100)
                         numero_ticks +=1
-
                     }
                     //detecta se é uma pausa longa ou curta
                     pausas()
                 }else{
-                    txt?.setText("pomodoro: "+(tempo_decorrido /1000)+"s | "+tempo_pomodoro/1000+"s\nticks: $numero_ticks" )
+                    val texto= "pomodoro: "+(tempo_decorrido /1000)+"s | "+tempo_pomodoro/1000+"s\nticks: $numero_ticks"
+                    val texto2= ""+(tempo_decorrido /1000)+" | "+tempo_pomodoro/1000+"\nticks: $numero_ticks"
+
+                    txt?.setText(texto )
+                    CronometroService.mudartexto(texto2)
                 }
-
-
-
             }
-
         }
     }
     companion object{
@@ -102,7 +108,7 @@ class PomodoroService(
         var tempo_decorrido:Long=0
         var pausa = false
         var txt:TextView?=null
-        var pomodoro: PomodoroService?=null
+        var pomodoro: PomodoroManager?=null
         var pausado = false
 
     }

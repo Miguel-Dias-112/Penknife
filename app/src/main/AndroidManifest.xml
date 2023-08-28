@@ -32,6 +32,11 @@
             android:exported="false" android:name=".logica.Blocker.BlockerService" >
 
         </service>
+        <service
+            android:enabled="true"
+            android:exported="false" android:name=".logica.Blocker.CronometroService" >
+
+        </service>
         <receiver android:name="com.example.farmcontrol.logica.Alarmes.AlarmeService"
             android:enabled="true"
             android:exported="true">

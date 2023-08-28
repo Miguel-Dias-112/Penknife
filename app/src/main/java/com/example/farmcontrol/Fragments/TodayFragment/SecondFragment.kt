@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.Switch
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ import com.example.farmcontrol.R
 import com.example.farmcontrol.dialogs.ScreenManager
 import com.example.farmcontrol.logica.Blocker.BlockerService
 import com.example.farmcontrol.Fragments.TodayFragment.Pomodoro.PomodoroButton
+import com.example.farmcontrol.logica.Blocker.CronometroService
 
 /**
  * A simple [Fragment] subclass.
@@ -42,6 +44,7 @@ class SecondFragment : Fragment() {
         }
 
     }
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
