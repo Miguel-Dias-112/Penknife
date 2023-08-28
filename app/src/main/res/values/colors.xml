@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="fundo">#6eb5e5</color>
+    <color name="conteudo">#FFFF</color>
+    <color name="cor_de_letra" >#2980B9</color>
+    <color name="statusBarColor">
+        #2980B9
+    </color>
+    <color name="colorPrimaryDark">
+        #2980B9
+    </color>
+</resources>

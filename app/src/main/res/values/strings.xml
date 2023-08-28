@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ProductivKnife</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="sobre_nos">
+        O objetivo desse app é ser um admistrador de medicações, com intuito de reduzir danos, acerca de má adminstração das mesmas.
+
+        Este app de forma alguma substitui um profissional qualificado, sendo apenas uma ferramenta de controle e pesquisa.
+
+        AUTOMEDICAÇÃO MATA, 20mil brasileirosmorrem por ano devido a automedicação
+
+    </string>
+
+</resources>

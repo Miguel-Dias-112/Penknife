@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/lembrete_pontual_hora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/lato"
+        android:text="hora do aviso"
+        android:textColor="@color/cor_de_letra"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lembrete_pontual_timepicker"
+        app:layout_constraintEnd_toStartOf="@+id/lembrete_pontual_timepicker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lembrete_pontual_timepicker" />
+
+    <ImageButton
+        android:id="@+id/lembrete_pontual_timepicker"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/conteudo"
+        android:src="@drawable/baseline_access_time_24"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lembrete_pontual_hora"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/lembrete_pontual_confirmar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Confirmar"
+        app:backgroundTint="@color/fundo"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/lembrete_pontual_timepicker"
+        app:layout_constraintStart_toStartOf="@+id/lembrete_pontual_hora"
+        app:layout_constraintTop_toBottomOf="@+id/lembrete_pontual_timepicker" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/lembrete_pontual_cancelar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
+
+        android:text="Cancelar"
+        app:backgroundTint="@color/fundo"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/lembrete_pontual_confirmar"
+        app:layout_constraintStart_toStartOf="@+id/lembrete_pontual_confirmar"
+        app:layout_constraintTop_toBottomOf="@+id/lembrete_pontual_confirmar" />
+     />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/white"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/lembrete_pontual_timepicker"
+        app:layout_constraintStart_toStartOf="@+id/lembrete_pontual_hora"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/nome_novomedicamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/cor_de_letra"
+            android:hint="Nome do Lembrete Pontual"
+            android:textColorHint="@color/cor_de_letra" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/lato"
+        android:text="Novo Lembrete Pontual"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
