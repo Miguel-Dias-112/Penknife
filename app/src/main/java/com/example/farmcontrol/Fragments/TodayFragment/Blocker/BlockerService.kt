@@ -1,4 +1,4 @@
-package com.example.farmcontrol.logica.Blocker
+package com.example.farmcontrol.Fragments.TodayFragment.Blocker
 
 import android.annotation.SuppressLint
 import android.app.ActivityManager
@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
+import android.view.WindowManager.LayoutParams
 import android.widget.Button
 import com.example.farmcontrol.R
 import kotlinx.coroutines.CoroutineScope
@@ -65,7 +66,7 @@ class BlockerService:Service(){
             }
 
             while (true) {
-                if (block==true ){
+                if (block ==true ){
                     controlarTela()
                 }else{
                     desbloquearTela()
@@ -74,22 +75,52 @@ class BlockerService:Service(){
             }
         }
         fun criaBlockerLayout(){
+            var returnbtn:Button
+            var layoutparam2:LayoutParams
             fun criaFloatButton(){
                 floatingButton = Button(this)
                 floatingButton.text ="você saiu do app, clique ${30 - counter} vezes pra desativar o bloqueio"
                 floatingButton.setBackgroundResource(R.drawable.border)
                 floatingButton.setOnClickListener {
-                    if (counter==30){
-                        block=false
+                    if (counter ==30){
+                        block =false
                     }else{
-                        counter+=1
-                        if (counter>30){
+                        counter +=1
+                        if (counter >30){
                         }
                     }
                     floatingButton.text ="você saiu do app, clique ${30 - counter} vezes pra desativar o bloqueio"
                     windowManager.updateViewLayout(floatingButton, layoutParams)
                 }
             }
+            fun criareturnButton(){
+                returnbtn = Button(this)
+                returnbtn.text ="você saiu do app, clique ${30 - counter} vezes pra desativar o bloqueio"
+                returnbtn.setBackgroundResource(R.drawable.border)
+                returnbtn.setOnClickListener {
+                    if (counter ==30){
+                        block =false
+                    }else{
+                        counter +=1
+                        if (counter >30){
+                        }
+                    }
+                    returnbtn.text ="você saiu do app, clique ${30 - counter} vezes pra desativar o bloqueio"
+                }
+                layoutparam2 = WindowManager.LayoutParams(
+                    WindowManager.LayoutParams.WRAP_CONTENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT,
+                    WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+                    WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                    PixelFormat.TRANSLUCENT
+                )
+                layoutparam2.gravity = Gravity.BOTTOM
+                windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+
+                windowManager.addView(returnbtn, layoutparam2)
+
+            }
+
             fun criaParametrosLayout(){
                 layoutParams = WindowManager.LayoutParams(
                     WindowManager.LayoutParams.MATCH_PARENT,
@@ -103,6 +134,7 @@ class BlockerService:Service(){
             fun adicionarTela(){
                 windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
                 windowManager.addView(floatingButton, layoutParams)
+
 
             }
 

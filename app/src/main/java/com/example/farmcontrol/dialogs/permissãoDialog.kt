@@ -8,7 +8,7 @@ import android.net.Uri
 import android.provider.Settings
 import android.view.LayoutInflater
 import com.example.farmcontrol.R
-import com.example.farmcontrol.logica.Blocker.BlockerService
+import com.example.farmcontrol.Fragments.TodayFragment.Blocker.BlockerService
 import com.google.android.material.button.MaterialButton
 
 @SuppressLint("MissingInflatedId")

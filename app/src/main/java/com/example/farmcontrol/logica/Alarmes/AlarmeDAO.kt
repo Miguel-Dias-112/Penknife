@@ -10,7 +10,7 @@ import com.example.farmcontrol.R
 
 class AlarmeDAO(var ctx: Context) {
 
-    val intent = Intent(ctx!!, AlarmeService::class.java)
+    val intent = Intent(ctx!!, AlarmeBroadcast::class.java)
     val alarmManager = ctx!!.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
     fun criarAlarmePontual(calendar: Calendar){

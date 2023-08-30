@@ -5,7 +5,7 @@ import android.content.Intent
 import android.util.Log
 import android.widget.TextView
 import com.example.farmcontrol.logica.Alarmes.AlarmeDAO
-import com.example.farmcontrol.logica.Blocker.BlockerService
+import com.example.farmcontrol.Fragments.TodayFragment.Blocker.BlockerService
 import com.example.farmcontrol.logica.Blocker.CronometroService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

@@ -54,7 +54,7 @@ class NotificationFactory {
 
     fun notifica(){
 
-        val stop_notification = Intent(ctx!!, AlarmeService::class.java).apply {
+        val stop_notification = Intent(ctx!!, AlarmeBroadcast::class.java).apply {
             action = "stop"
         }
         val stopIntent: PendingIntent =

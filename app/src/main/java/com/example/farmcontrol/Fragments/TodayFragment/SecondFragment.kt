@@ -15,9 +15,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.farmcontrol.R
 import com.example.farmcontrol.dialogs.ScreenManager
-import com.example.farmcontrol.logica.Blocker.BlockerService
+import com.example.farmcontrol.Fragments.TodayFragment.Blocker.BlockerService
+import com.example.farmcontrol.Fragments.TodayFragment.Blocker.BlockerView
 import com.example.farmcontrol.Fragments.TodayFragment.Pomodoro.PomodoroButton
 import com.example.farmcontrol.logica.Blocker.CronometroService
+import java.lang.Exception
 
 /**
  * A simple [Fragment] subclass.
@@ -25,23 +27,16 @@ import com.example.farmcontrol.logica.Blocker.CronometroService
  * create an instance of this fragment.
  */
 class SecondFragment : Fragment() {
-
+    var blockerView: BlockerView? =null
     fun atualiza_lista(c: Context){
         ScreenManager.atualiza_lista(c)
     }
-    var x: Switch? =null
     @SuppressLint("MissingInflatedId")
     override fun onStart() {
         super.onStart()
-        try{
-            x?.isChecked=BlockerService.block
-            BlockerService.counter=0
+        Log.i("TAG", "onStart: ")
+        blockerView?.façalogica()
 
-            if (BlockerService.block==false){
-            }
-        }catch (e:Exception){
-
-        }
 
     }
     @SuppressLint("MissingInflatedId")
@@ -59,37 +54,13 @@ class SecondFragment : Fragment() {
             ScreenManager.secondFragmentManager=parentFragmentManager
             ScreenManager.criaLembrePontualDialog(requireContext())
         }
-        val switch3 = view.findViewById<Switch>(R.id.switch3)
-        switch3.setOnCheckedChangeListener { _, isChecked ->
-            // Lógica para lidar com a alteração do switch button
-            if (isChecked) {
-                BlockerService.block=true
-
-            } else {
-                BlockerService.block=false
-            }
-        }
-        val blocker_ctn = view.findViewById<ConstraintLayout>(R.id.blocker_ctn)
-        blocker_ctn.setOnClickListener {
-            Log.i("foda", "onCreateView:existo ")
-            if (BlockerService.block==false){
-                BlockerService.block=true
-                switch3.isChecked=true
-            }else{
-                BlockerService.block=false
-                switch3.isChecked=false
 
 
-            }
-            requireContext().startService(Intent(context, BlockerService::class.java))
-
-        }
-
+        blockerView=BlockerView(view,requireContext())
         ScreenManager.lembretes_dia_lista=view.findViewById<RecyclerView>(R.id.recyclerView)
         PomodoroButton(view,requireContext())
         atualiza_lista(requireContext())
         BlockerService.counter=0
-        x=switch3
         return view
     }
 
