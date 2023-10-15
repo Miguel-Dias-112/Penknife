@@ -1,4 +1,4 @@
-package com.example.farmcontrol.dialogs
+package com.example.farmcontrol.logica.SegundoPlano
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -8,7 +8,6 @@ import android.net.Uri
 import android.provider.Settings
 import android.view.LayoutInflater
 import com.example.farmcontrol.R
-import com.example.farmcontrol.Fragments.TodayFragment.Blocker.BlockerService
 import com.google.android.material.button.MaterialButton
 
 @SuppressLint("MissingInflatedId")
@@ -43,7 +42,7 @@ class permissãoDialog(var context: Context) {
 
         if (true && !Settings.canDrawOverlays(context)) {} else {
             dialog.dismiss()
-
+            context.startService(Intent(context, PomodoroService::class.java))
             context.startService(Intent(context, BlockerService::class.java))
         }
     }

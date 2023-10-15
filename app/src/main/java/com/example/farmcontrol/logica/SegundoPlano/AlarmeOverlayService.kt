@@ -1,4 +1,4 @@
-package com.example.farmcontrol.Fragments.TodayFragment.Alarm
+package com.example.farmcontrol.logica.SegundoPlano
 
 import android.app.ActivityManager
 import android.app.Service
@@ -10,7 +10,6 @@ import android.view.Gravity
 import android.view.WindowManager
 import android.widget.Button
 import com.example.farmcontrol.R
-import com.example.farmcontrol.logica.Blocker.CronometroService
 
 class AlarmeOverlayService: Service() {
     override fun onBind(intent: Intent?): IBinder? {
@@ -39,14 +38,7 @@ class AlarmeOverlayService: Service() {
                 floatingButton?.text ="Seu alarme disparou, toque na tela para voltar para o sistema"
                 floatingButton?.setBackgroundResource(R.drawable.border)
                 floatingButton?.setOnClickListener {
-                    if(getappinfocus(applicationContext) == false){
-                        windowManager.updateViewLayout(
-                            floatingButton,
-                            layoutParams
-                        )
-
-                    }
-
+                    windowManager.removeView(floatingButton)
                 }
 
 
@@ -61,8 +53,6 @@ class AlarmeOverlayService: Service() {
                     WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                     PixelFormat.TRANSLUCENT
                 )
-
-                //  layoutParams.gravity = Gravity.TOP or Gravity.START
                  layoutParams.gravity = Gravity.CENTER
 
             }
@@ -78,7 +68,7 @@ class AlarmeOverlayService: Service() {
             criaFloatButton()
             criaParametrosLayout()
             adicionarTela()
-            CronometroService.close()
+            PomodoroService.close()
         }
         criaCronometro()
     }

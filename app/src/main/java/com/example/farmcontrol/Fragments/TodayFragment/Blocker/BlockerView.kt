@@ -6,8 +6,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Switch
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.farmcontrol.R
+import com.example.farmcontrol.logica.SegundoPlano.BlockerService
 
 class BlockerView(var view:View, var context:Context) {
     val switch3:Switch =view.findViewById<Switch>(R.id.switch3)

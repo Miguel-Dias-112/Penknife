@@ -1,4 +1,4 @@
-package com.example.farmcontrol.Fragments.TodayFragment.Blocker
+package com.example.farmcontrol.logica.SegundoPlano
 
 import android.annotation.SuppressLint
 import android.app.ActivityManager
@@ -7,8 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.IBinder
-import android.util.DisplayMetrics
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.WindowManager

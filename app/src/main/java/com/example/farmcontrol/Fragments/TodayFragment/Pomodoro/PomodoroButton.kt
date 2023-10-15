@@ -1,14 +1,13 @@
 package com.example.farmcontrol.Fragments.TodayFragment.Pomodoro
 
 import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.farmcontrol.R
-import com.example.farmcontrol.logica.Blocker.CronometroService
+import com.example.farmcontrol.logica.SegundoPlano.PomodoroService
 
 class PomodoroButton(var view: View, var c: Context) {
 
@@ -67,14 +66,13 @@ class PomodoroButton(var view: View, var c: Context) {
         }
         val  allowoutscreen = view.findViewById<ImageButton>(R.id.allowoutscreen)
         allowoutscreen.setOnClickListener {
-            CronometroService.switchOpenClose()
+            PomodoroService.switchOpenClose()
         }
         val  deletePomo = view.findViewById<ImageButton>(R.id.deletebtn)
         deletePomo.setOnClickListener {
             PomodoroManager.pomodoro?.deletar()
         }
 
-        c.startService(Intent(c, CronometroService::class.java))
 
 
     }

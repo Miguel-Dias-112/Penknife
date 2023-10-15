@@ -22,13 +22,13 @@ class CriaLembretePontual_dialog(var context: Context,var fragmentmanager:Fragme
     val view = inflater.inflate(R.layout.alarme_pontual_dialog, null)
     val texto:TextView = view.findViewById(R.id.lembrete_pontual_hora)
 
-    fun timer_picker(){
+    fun CriaBotãoTempo(){
         var botão = view.findViewById<ImageButton>(R.id.lembrete_pontual_timepicker)
         botão.setOnClickListener {
             Timepicker_dialog(fragmentmanager, texto)
         }
     }
-    fun confirmar(){
+    fun CriaBotãoConfirmar(){
         var botão = view.findViewById<Button>(R.id.lembrete_pontual_confirmar)
         var nome_input = view.findViewById<TextInputEditText>(R.id.nome_novomedicamento)
         botão.setOnClickListener {
@@ -43,7 +43,7 @@ class CriaLembretePontual_dialog(var context: Context,var fragmentmanager:Fragme
             dialog.dismiss()
         }
     }
-    fun cancelar(){
+    fun CriaBotãoCancelar(){
         var botão = view.findViewById<Button>(R.id.lembrete_pontual_cancelar)
         botão.setOnClickListener {
             dialog.dismiss()
@@ -52,9 +52,9 @@ class CriaLembretePontual_dialog(var context: Context,var fragmentmanager:Fragme
     }
     init {
         ScreenManager.calendar= Calendar.getInstance(TimeZone.getDefault())
-        confirmar()
-        cancelar()
-        timer_picker()
+        CriaBotãoConfirmar()
+        CriaBotãoCancelar()
+        CriaBotãoTempo()
 
         dialog.setView(view)
         dialog.show()

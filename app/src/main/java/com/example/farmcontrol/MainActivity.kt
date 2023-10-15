@@ -1,6 +1,5 @@
 package com.example.farmcontrol
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +8,7 @@ import androidx.room.Room
 import com.example.farmcontrol.Fragments.ChatFragment.ThirdFragment
 import com.example.farmcontrol.Fragments.LembretesAgendados_fragment.FirstFragment
 import com.example.farmcontrol.Fragments.TodayFragment.SecondFragment
-import com.example.farmcontrol.dialogs.permissãoDialog
+import com.example.farmcontrol.logica.SegundoPlano.permissãoDialog
 import com.example.farmcontrol.logica.Database.LembretesAgendados.DatabaseApp
 import com.example.farmcontrol.logica.Database.LembretesAgendados.Models.LembreteModel
 import com.example.farmcontrol.logica.LembretesDao

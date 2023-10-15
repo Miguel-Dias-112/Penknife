@@ -1,4 +1,4 @@
-package com.example.farmcontrol.logica.Blocker
+package com.example.farmcontrol.logica.SegundoPlano
 
 import android.annotation.SuppressLint
 import android.app.ActivityManager
@@ -8,7 +8,6 @@ import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.IBinder
 import android.util.Log
-import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
@@ -16,7 +15,7 @@ import android.widget.Button
 import com.example.farmcontrol.MainActivity
 import com.example.farmcontrol.R
 
-class CronometroService:Service(){
+class PomodoroService:Service(){
     private var initialX = 0f
     private var initialY = 0f
     private var initialTouchX: Float = 0.toFloat()
@@ -106,7 +105,7 @@ class CronometroService:Service(){
             close()
             Log.i("cronometro", "criaCronometro: ")
         }
-        criaCronometro()
+       criaCronometro()
     }
     companion object{
          var isclosed:Boolean=false
