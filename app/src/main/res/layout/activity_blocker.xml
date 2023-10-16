@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Blocker">
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/circularProgressIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="10"
+        android:progress="5"
+        app:indicatorColor="#F6F6F6"
+        app:indicatorSize="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32999998"
+        app:trackColor="@color/fundo"
+        app:trackThickness="10dp"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Voltar ao App"
+        app:backgroundTint="@color/fundo"
+        app:layout_constraintEnd_toEndOf="@+id/circularProgressIndicator"
+        app:layout_constraintStart_toStartOf="@+id/circularProgressIndicator"
+        app:layout_constraintTop_toBottomOf="@+id/circularProgressIndicator" />
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="64dp"
+        android:layout_height="15dp"
+        android:fontFamily="@font/lato"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/circularProgressIndicator"
+        app:layout_constraintEnd_toEndOf="@+id/circularProgressIndicator"
+        app:layout_constraintStart_toStartOf="@+id/circularProgressIndicator"
+        app:layout_constraintTop_toTopOf="@+id/circularProgressIndicator" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="Você bloqueou seu dispositivo"
+        android:textColor="@color/cor_de_letra"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/circularProgressIndicator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="espere 1 hora"
+        app:layout_constraintEnd_toEndOf="@+id/textView27"
+        app:layout_constraintStart_toStartOf="@+id/textView27"
+        tools:layout_editor_absoluteY="134dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
