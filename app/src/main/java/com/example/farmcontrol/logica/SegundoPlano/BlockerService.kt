@@ -12,6 +12,9 @@ import android.view.View
 import android.view.WindowManager
 import android.view.WindowManager.LayoutParams
 import android.widget.Button
+import com.example.farmcontrol.AlarmeAtivado
+import com.example.farmcontrol.Blocker
+import com.example.farmcontrol.MainActivity
 import com.example.farmcontrol.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -48,15 +51,21 @@ class BlockerService:Service(){
                 return false
             }
             fun bloquearTela(){
-                floatingButton.visibility=View.VISIBLE
-                windowManager.updateViewLayout(floatingButton, layoutParams)
+
+                var popupWindow =  Intent(applicationContext, Blocker::class.java)
+                popupWindow.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                //applicationContext.startActivity(popupWindow)
+
+
             }
             fun desbloquearTela(){
+
                 floatingButton.visibility=View.INVISIBLE
                 windowManager.updateViewLayout(floatingButton, layoutParams)
             }
             fun controlarTela(){
                 if (pegarAppFoco(applicationContext)==true){
+
                     desbloquearTela()
                 }else{
                     bloquearTela()
@@ -69,7 +78,7 @@ class BlockerService:Service(){
                 }else{
                     desbloquearTela()
                 }
-                delay(500)
+                delay(100)
             }
         }
         fun criaBlockerLayout(){
@@ -140,7 +149,7 @@ class BlockerService:Service(){
             criaParametrosLayout()
             adicionarTela()
         }
-        criaBlockerLayout()
+       criaBlockerLayout()
     }
     companion object{
         var counter =0

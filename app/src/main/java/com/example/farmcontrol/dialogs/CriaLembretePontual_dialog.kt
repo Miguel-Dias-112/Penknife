@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.icu.util.Calendar
 import android.icu.util.TimeZone
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ImageButton
@@ -33,13 +34,12 @@ class CriaLembretePontual_dialog(var context: Context,var fragmentmanager:Fragme
         var nome_input = view.findViewById<TextInputEditText>(R.id.nome_novomedicamento)
         botão.setOnClickListener {
 
-            var calendar = ScreenManager.calendar
-            AlarmeDAO(context).criarAlarmePontual(calendar)
+            var calendar = ScreenManager.calendar.clone()
+            AlarmeDAO(context).criarAlarmePontual(calendar as Calendar)
             LembretesDao().adiciona_lembrete(
-                Lembrete(nome_input.text.toString(), 24.0,1, calendar),
-                context
+                Lembrete(nome_input.text.toString(), 24.0,1, calendar), context
             )
-            ScreenManager.atualiza_lista(context)
+
             dialog.dismiss()
         }
     }

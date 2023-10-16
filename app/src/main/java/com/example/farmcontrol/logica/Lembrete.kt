@@ -4,6 +4,7 @@ import android.icu.util.Calendar
 import android.icu.util.TimeZone
 import android.util.Log
 import com.example.farmcontrol.dialogs.ScreenManager
+import com.example.farmcontrol.logica.Alarmes.AlarmeDAO
 
 class Lembrete {
     open var datas: MutableList<MutableList<Int>>? = null
@@ -26,7 +27,6 @@ class Lembrete {
         intervalo_de_tempo_horas= lembrete.intervalo_de_tempo_horas
         dias_tomando = lembrete.dias_tomando
         datas = lembrete.datas
-
         data_inicial=lembrete.data_inicial
 
 
@@ -41,13 +41,11 @@ class Lembrete {
         intervalo_de_tempo_horas = _intervalo_de_tempo_horas
         dias_tomando = _dias_tomando
         datas = gerar_datas(_data_inicial)
-
-
         data_inicial= ScreenManager.calendar.clone() as Calendar
 
 
-    }
 
+    }
     fun gerar_datas(data_inicial: Calendar): MutableList<MutableList<Int>>? {
         val calendar = data_inicial.clone() as Calendar
         val lista_datas = mutableListOf<MutableList<Int>>()
