@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Blocker">
+    tools:context=".BlockerAct">
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/circularProgressIndicator"
@@ -24,6 +24,7 @@
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/backtomain"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -48,20 +49,23 @@
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="64dp"
         android:text="Você bloqueou seu dispositivo"
         android:textColor="@color/cor_de_letra"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/circularProgressIndicator"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="espere 1 hora"
+        app:layout_constraintBottom_toTopOf="@+id/circularProgressIndicator"
         app:layout_constraintEnd_toEndOf="@+id/textView27"
         app:layout_constraintStart_toStartOf="@+id/textView27"
-        tools:layout_editor_absoluteY="134dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
 </androidx.constraintlayout.widget.ConstraintLayout>

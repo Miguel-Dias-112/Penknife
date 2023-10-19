@@ -5,10 +5,10 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.room.Room
-import com.example.farmcontrol.Fragments.ChatFragment.ThirdFragment
-import com.example.farmcontrol.Fragments.LembretesAgendados_fragment.FirstFragment
-import com.example.farmcontrol.Fragments.TodayFragment.SecondFragment
-import com.example.farmcontrol.logica.SegundoPlano.permissãoDialog
+import com.example.farmcontrol.Fragments.ChatFrag.ThirdFragment
+import com.example.farmcontrol.Fragments.LembretesAgendadosFrag.FirstFragment
+import com.example.farmcontrol.Fragments.HomeFrag.SecondFragment
+import com.example.farmcontrol.logica.Services.permissãoDialog
 import com.example.farmcontrol.logica.Database.LembretesAgendados.DatabaseApp
 import com.example.farmcontrol.logica.Database.LembretesAgendados.Models.LembreteModel
 import com.example.farmcontrol.logica.LembretesDao
@@ -51,7 +51,11 @@ class MainActivity : AppCompatActivity() {
 
         }
         CoroutineScope(Dispatchers.Default).launch{
-            databaseload()
+            try {
+                databaseload()
+            }catch (e:Exception){
+                
+            }
 
         }
 

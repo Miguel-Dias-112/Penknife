@@ -27,22 +27,22 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Blocker"
+            android:name=".BlockerAct"
             android:exported="false" />
         <activity
-            android:name=".AlarmeAtivado"
+            android:name=".AlarmeAtivadoAct"
             android:exported="false" />
 
         <service
-            android:name=".logica.SegundoPlano.BlockerService"
+            android:name=".logica.Services.BlockerService"
             android:enabled="true"
             android:exported="false"></service>
         <service
-            android:name=".logica.SegundoPlano.PomodoroService"
+            android:name=".logica.Services.PomodoroService"
             android:enabled="true"
             android:exported="false"></service>
         <service
-            android:name=".logica.SegundoPlano.AlarmeOverlayService"
+            android:name=".logica.Services.AlarmeOverlayService"
             android:enabled="true"></service>
 
         <receiver
