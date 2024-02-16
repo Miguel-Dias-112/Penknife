@@ -27,26 +27,26 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".BlockerAct"
+            android:name=".BlockerActivity"
             android:exported="false" />
         <activity
-            android:name=".AlarmeAtivadoAct"
+            android:name=".AlarmeAtivadoActivity"
             android:exported="false" />
 
         <service
-            android:name=".logica.Services.BlockerService"
+            android:name=".Telas.TelaFunções.Views.Blocker.BlockerService"
             android:enabled="true"
             android:exported="false"></service>
         <service
-            android:name=".logica.Services.PomodoroService"
+            android:name=".Telas.TelaFunções.Views.Pomodoro.PomodoroService"
             android:enabled="true"
             android:exported="false"></service>
         <service
-            android:name=".logica.Services.AlarmeOverlayService"
+            android:name=".Notificações.Services.AlarmeOverlayService"
             android:enabled="true"></service>
 
         <receiver
-            android:name=".logica.Alarmes.AlarmeBroadcast"
+            android:name=".Notificações.Alarmes.AlarmeBroadcast"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

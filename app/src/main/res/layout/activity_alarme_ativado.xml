@@ -4,29 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlarmeAtivadoAct">
+    android:backgroundTint="@color/fundo"
+    android:backgroundTintMode="add"
+    tools:context=".AlarmeAtivadoActivity">
 
     <TextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
-        android:text="Você tem um lembrete pendente"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:fontFamily="sans-serif-black"
+        android:text="Lembrete pendente"
+        android:textColor="@color/cor_de_letra"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/nomeAlarme"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/textView25"
-        app:layout_constraintStart_toStartOf="@+id/textView25"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/lato"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/materialButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="80dp"
+        android:text="Voltar"
+        android:textSize="20sp"
+        app:backgroundTint="@color/fundo"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </com.google.android.material.button.MaterialButton>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

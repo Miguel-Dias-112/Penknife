@@ -16,8 +16,8 @@ import com.example.farmcontrol.dialogs.ScreenManager.Companion.calendar
 import com.example.farmcontrol.dialogs.ScreenManager.Companion.datapicker
 import com.example.farmcontrol.dialogs.ScreenManager.Companion.firstFragment_fragmentmanager
 import com.example.farmcontrol.dialogs.ScreenManager.Companion.timepicker
-import com.example.farmcontrol.logica.Lembrete
-import com.example.farmcontrol.logica.LembretesDao
+import com.example.farmcontrol.Telas.TelaLembretes.Lembretes.Lembrete
+import com.example.farmcontrol.Telas.TelaLembretes.Lembretes.LembretesDAO
 import com.google.android.material.textfield.TextInputEditText
 
 class CriaLembrete_dialog// Lógica a ser executada quando o usuário para de interagir com a SeekBar// Lógica a ser executada quando o usuário começa a interagir com a SeekBar// Lógica a ser executada quando o progresso da SeekBar é alterad//val botão_cancelar = view.findViewById<Button>(R.id.cancelar_projeto)
@@ -111,7 +111,7 @@ class CriaLembrete_dialog// Lógica a ser executada quando o usuário para de in
                         }
 
                         var lembrete =  Lembrete(nome, intervalo, dias_tomando, calendar)
-                        LembretesDao().adiciona_lembrete(
+                        LembretesDAO().adiciona_lembrete(
                            lembrete,
                             context
                         )

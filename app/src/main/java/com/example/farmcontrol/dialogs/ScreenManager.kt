@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.example.farmcontrol.Fragments.HomeFrag.remedios_dia_adapter
-import com.example.farmcontrol.Fragments.LembretesAgendadosFrag.EssaSemana.remedios_semana_adpater
-import com.example.farmcontrol.Fragments.LembretesAgendadosFrag.Remedios.MedicamentosListaReciclavelAdapter
-import com.example.farmcontrol.logica.Services.Datas_semanais_service
+import com.example.farmcontrol.Telas.TelaFunções.remedios_dia_adapter
+import com.example.farmcontrol.Telas.TelaLembretes.ListasAdpters.EssaSemana.LembretesSemanaAdapter
+import com.example.farmcontrol.Telas.TelaLembretes.ListasAdpters.LembretesGeral.LembretesGeralAdpter
+import com.example.farmcontrol.Notificações.Services.Datas_semanais_service
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 
 class ScreenManager() {
@@ -45,7 +45,7 @@ class ScreenManager() {
             try {
 
 
-            val adapter_remedios_semana = remedios_semana_adpater(context)
+            val adapter_remedios_semana = LembretesSemanaAdapter(context)
            // lembretes_semana_lista?.setLayoutManager(LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false))
             lembretes_semana_lista?.adapter = adapter_remedios_semana
 
@@ -57,7 +57,7 @@ class ScreenManager() {
 
             }
 
-            val lista_reciclavel_meus_medicamentos_adpater = MedicamentosListaReciclavelAdapter(context)
+            val lista_reciclavel_meus_medicamentos_adpater = LembretesGeralAdpter(context)
             meus_medicamentos_lista?.setLayoutManager(GridLayoutManager(context,2))
             meus_medicamentos_lista?.adapter=lista_reciclavel_meus_medicamentos_adpater
 

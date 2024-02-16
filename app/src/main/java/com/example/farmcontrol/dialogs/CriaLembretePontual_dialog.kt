@@ -4,16 +4,15 @@ import android.app.AlertDialog
 import android.content.Context
 import android.icu.util.Calendar
 import android.icu.util.TimeZone
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import com.example.farmcontrol.R
-import com.example.farmcontrol.logica.Alarmes.AlarmeDAO
-import com.example.farmcontrol.logica.Lembrete
-import com.example.farmcontrol.logica.LembretesDao
+import com.example.farmcontrol.Notificações.Alarmes.AlarmeDAO
+import com.example.farmcontrol.Telas.TelaLembretes.Lembretes.Lembrete
+import com.example.farmcontrol.Telas.TelaLembretes.Lembretes.LembretesDAO
 import com.google.android.material.textfield.TextInputEditText
 
 class CriaLembretePontual_dialog(var context: Context,var fragmentmanager:FragmentManager) {
@@ -35,8 +34,8 @@ class CriaLembretePontual_dialog(var context: Context,var fragmentmanager:Fragme
         botão.setOnClickListener {
 
             var calendar = ScreenManager.calendar.clone()
-            AlarmeDAO(context).criarAlarmePontual(calendar as Calendar)
-            LembretesDao().adiciona_lembrete(
+            AlarmeDAO(context).criarAlarmePontual(calendar as Calendar,nome_input.text.toString())
+            LembretesDAO().adiciona_lembrete(
                 Lembrete(nome_input.text.toString(), 24.0,1, calendar), context
             )
 
