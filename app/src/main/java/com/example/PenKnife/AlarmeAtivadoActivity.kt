@@ -9,7 +9,7 @@ import com.google.android.material.button.MaterialButton
 class AlarmeAtivadoActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
-        titleColor=R.color.cor_de_letra
+        titleColor= R.color.cor_de_letra
         window.statusBarColor=getColor(R.color.cor_de_letra)
         window
     }

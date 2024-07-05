@@ -7,10 +7,10 @@ plugins {
 
 
 android {
-    namespace 'com.example.farmcontrol'
+    namespace 'com.example.PenKnife'
     compileSdk 33
     defaultConfig {
-        applicationId "com.example.farmcontrol"
+        applicationId "com.example.PenKnife"
         minSdk 24
         targetSdk 33
         versionCode 1

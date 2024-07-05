@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
-        titleColor=R.color.cor_de_letra
+        titleColor= R.color.cor_de_letra
         window.statusBarColor=getColor(R.color.cor_de_letra)
        window
     }
